@@ -1,0 +1,18 @@
+Baseline Run (TimingSimpleCPU):
+build/X86/gem5.opt --outdir=runs_ilp/baseline \
+configs/deprecated/example/se.py \
+-c tests/test-progs/threads/bin/x86/linux/threads \
+--cpu-type=TimingSimpleCPU \
+--caches --l2cache
+
+O3CPU Run:
+build/X86/gem5.opt --outdir=runs_ilp/o3 \
+configs/deprecated/example/se.py \
+-c tests/test-progs/threads/bin/x86/linux/threads \
+--cpu-type=O3CPU \
+--caches --l2cache
+
+IPC Extraction:
+grep ipc runs_ilp/baseline/stats.txt
+grep ipc runs_ilp/o3/stats.txt
+
